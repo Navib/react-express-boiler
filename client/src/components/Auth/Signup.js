@@ -7,13 +7,11 @@ import { CHANGE_AUTH } from '../../actions';
 class Signup extends Component {
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
-      console.log('go to profile');
       this.props.history.push('/profile');
     });
   };
 
   render() {
-    console.log('signUp Props:', this.props);
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -49,8 +47,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     signup: (data, callback) => {
-      dispatch({ type: CHANGE_AUTH, payload: data });
-      callback();
+      dispatch({ type: CHANGE_AUTH, payload: data, callback: callback });
     }
   };
 };

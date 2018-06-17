@@ -12,6 +12,7 @@ export default ChildComponent => {
     }
 
     shouldNavigateAway() {
+      console.log('nav away', this.props.auth);
       if (!this.props.auth) {
         this.props.history.push('/');
       }
@@ -23,7 +24,7 @@ export default ChildComponent => {
   }
 
   function mapStateToProps(state) {
-    return { auth: state.auth };
+    return { auth: state.auth.authenticated };
   }
 
   return connect(mapStateToProps)(ComposedComponent);
