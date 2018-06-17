@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
-import NavBar from './NavBar/NavBar';
+import Home from './Pages/Home/Home';
+import Profile from './Pages/Profile/Profile';
 
 const App = props => (
   <div>
-    <NavBar />
-    <div>Video Section</div>
-    <div>Review Section</div>
-    <footer>Footer area</footer>
+    <Route path="/profile" component={Profile} />
+    <Route path="/" exact component={Home} />
   </div>
 );
 

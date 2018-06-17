@@ -1,11 +1,10 @@
-import axios from "axios";
-import actions from "../actions";
+import axios from 'axios';
+import actions from '../actions';
 
-const makeRequest = (urlExtension, data = {}) =>
-  axios.get("https://api.myjson.com/bins/15vnj7", data, {
-    withCredentials: false
-  });
+const signup = data => {
+  return axios.post('http://localhost:3090/signup', data.payload);
+};
 
 export default {
-  getStuff: () => makeRequest("getStuff.php")
+  signup: data => signup(data)
 };

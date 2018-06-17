@@ -1,17 +1,18 @@
-import { takeLatest, put, call } from "redux-saga/effects";
-import actions from "../actions";
-import api from "../api";
+import { takeLatest, put, call } from 'redux-saga/effects';
+import { CHANGE_AUTH, CHANGED_AUTH, CHANGE_AUTH_ERROR } from '../actions';
+import api from '../api';
 
-function* getStuff() {
-  console.log("Stuff");
+function* signup(data, callback) {
+  console.log('sagas', data);
   try {
-    const data = yield call(api.getStuff);
-    yield put({ type: actions.GOT_STUFF, data });
+    const response = yield call(api.signup, data);
+    yield put({ type: CHANGED_AUTH, response });
+    callback;
   } catch (error) {
-    console.log("saga fail: ", error);
-    yield put({ type: actions.GOT_NO_STUFF, error });
+    console.log('error', error);
+    yield put({ type: CHANGE_AUTH_ERROR, error: 'Enter a unique email' });
   }
 }
 export function* sagas() {
-  yield takeLatest(actions.GET_STUFF, getStuff);
+  yield takeLatest(CHANGE_AUTH, signup);
 }
