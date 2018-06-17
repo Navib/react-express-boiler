@@ -1,11 +1,19 @@
 import React from 'react';
-import Header from './Header';
+import PropTypes from 'prop-types';
 
-export default ({ children }) => {
-  return (
-    <div>
-      <Header />
-      {children}
-    </div>
-  );
-};
+import NavBar from './NavBar/NavBar';
+
+const App = props => (
+  <div>
+    <NavBar />
+    <div>Video Section</div>
+    <div>Review Section</div>
+    <footer>Footer area</footer>
+  </div>
+);
+
+App.propTypes = {};
+
+App.defaultProps = {};
+
+export default App;
