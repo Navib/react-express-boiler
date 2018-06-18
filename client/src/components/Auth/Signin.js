@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { SIGN_IN } from '../../actions';
 
 class Signin extends Component {
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
-      this.props.history.push('/feature');
+      console.log('signin push');
+      this.props.history.push('/profile');
     });
   };
 
@@ -43,7 +45,18 @@ class Signin extends Component {
 function mapStateToProps(state) {
   return { errorMessage: state.auth.errorMessage };
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    signin: (data, callback) => {
+      dispatch({ type: SIGN_IN, payload: data, callback: callback });
+    }
+  };
+};
 export default compose(
-  connect(mapStateToProps, actions),
+  withRouter,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
   reduxForm({ form: 'signin' })
 )(Signin);

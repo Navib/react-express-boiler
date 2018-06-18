@@ -9,11 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    changeAuth: logged => {
-      dispatch({ type: CHANGE_AUTH, payload: logged });
-    }
-  };
+  return {};
 };
 const BottomNav = withRouter(
   connect(

@@ -7,6 +7,7 @@ import { CHANGE_AUTH } from '../../actions';
 class Signup extends Component {
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
+      console.log('SignUp');
       this.props.history.push('/profile');
     });
   };

@@ -10,23 +10,24 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { store, history } from './store';
 import { ConnectedRouter } from 'react-router-redux';
 import muiTheme from './theme/index';
-import BottomNav from './containers/BottomNav/BottomNav';
 
 import './styles/main.scss';
 import './assets/Rick.png';
 
 import App from './containers/app';
+import Home from './components/Pages/Home/Home';
+import Profile from './components/Pages/Profile/Profile';
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <div>
-          <Switch>
-            <Route path="/" component={App} />
-          </Switch>
-          <BottomNav />
-        </div>
+        <Switch>
+          <App>
+            <Route exact path="/" component={Home} />
+            <Route path="/profile" component={Profile} />
+          </App>
+        </Switch>
       </ConnectedRouter>
     </Provider>
   </MuiThemeProvider>,

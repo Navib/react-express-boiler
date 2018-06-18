@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Icon from '@material-ui/core/Icon';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -27,12 +27,6 @@ class BottomNav extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
-
-    if (this.props.auth) {
-      this.props.changeAuth(false);
-    } else {
-      this.props.changeAuth(true);
-    }
     this.props.history.push(`/${value}`);
   };
 
@@ -70,4 +64,4 @@ BottomNav.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(BottomNav);
+export default withRouter(withStyles(styles)(BottomNav));

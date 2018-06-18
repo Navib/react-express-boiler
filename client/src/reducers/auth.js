@@ -1,4 +1,9 @@
-import { CHANGED_AUTH, CHANGE_AUTH_ERROR } from '../actions';
+import {
+  CHANGED_AUTH,
+  CHANGE_AUTH_ERROR,
+  SIGNED_IN,
+  SIGN_IN_ERROR
+} from '../actions';
 
 const INITIAL_STATE = {
   authenticated: '',
@@ -10,8 +15,15 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case CHANGED_AUTH:
       return { ...state, authenticated: action.response.data.token };
 
+    case SIGNED_IN:
+      return { ...state, authenticated: action.response.data.token };
+
     case CHANGE_AUTH_ERROR:
       return { ...state, errorMessage: action.error };
+
+    case SIGN_IN_ERROR:
+      return { ...state, errorMessage: action.error };
+
     default:
       return state;
   }
