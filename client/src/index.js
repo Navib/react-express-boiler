@@ -17,6 +17,7 @@ import './assets/Rick.png';
 import App from './containers/app';
 import Home from './components/Pages/Home/Home';
 import Profile from './components/Pages/Profile/Profile';
+import Signout from './components/Auth/Signout';
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={muiTheme}>
@@ -26,6 +27,7 @@ ReactDOM.render(
           <App>
             <Route exact path="/" component={Home} />
             <Route path="/profile" component={Profile} />
+            <Route path="/signout" component={Signout} />
           </App>
         </Switch>
       </ConnectedRouter>

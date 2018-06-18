@@ -15,6 +15,7 @@ let middleware = applyMiddleware(...middlewares);
 const history = createHistory();
 const store = createStore(
   reducers,
+  { auth: { authenticated: localStorage.getItem('token') } },
   compose(
     middleware,
     applyMiddleware(routerMiddleware(history)),

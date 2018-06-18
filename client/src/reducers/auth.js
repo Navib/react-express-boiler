@@ -2,7 +2,8 @@ import {
   CHANGED_AUTH,
   CHANGE_AUTH_ERROR,
   SIGNED_IN,
-  SIGN_IN_ERROR
+  SIGN_IN_ERROR,
+  SIGNED_OUT
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -17,6 +18,10 @@ const authReducer = (state = INITIAL_STATE, action) => {
 
     case SIGNED_IN:
       return { ...state, authenticated: action.response.data.token };
+
+    case SIGNED_OUT:
+      console.log('SIGNOUYT');
+      return { ...state, authenticated: '' };
 
     case CHANGE_AUTH_ERROR:
       return { ...state, errorMessage: action.error };

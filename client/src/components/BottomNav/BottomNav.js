@@ -51,8 +51,8 @@ class BottomNav extends React.Component {
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
-          label="Nearby"
-          value="nearby"
+          label="signout"
+          value="signout"
           icon={<LocationOnIcon />}
         />
       </BottomNavigation>

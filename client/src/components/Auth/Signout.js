@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { SIGN_OUT } from '../../actions';
 
 class Signout extends Component {
   componentDidMount() {
@@ -11,4 +11,15 @@ class Signout extends Component {
   }
 }
 
-export default connect(null, actions)(Signout);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    signout: () => {
+      dispatch({ type: SIGN_OUT, payload: '' });
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Signout);
