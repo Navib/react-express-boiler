@@ -5,9 +5,10 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Icon from '@material-ui/core/Icon';
 import { Link, withRouter } from 'react-router-dom';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import TextSmsIcon from '@material-ui/icons/TextSms';
 
 const styles = {
   root: {
@@ -40,20 +41,21 @@ class BottomNav extends React.Component {
         onChange={this.handleChange}
         className={classes.root}
       >
+        <BottomNavigationAction label="Home" value="" icon={<HomeIcon />} />
         <BottomNavigationAction
           label="Profile"
           value="profile"
-          icon={<RestoreIcon />}
+          icon={<AccountCircleIcon />}
         />
         <BottomNavigationAction
-          label="Favorites"
-          value="favorites"
-          icon={<FavoriteIcon />}
+          label="Messages"
+          value="messages"
+          icon={<TextSmsIcon />}
         />
         <BottomNavigationAction
           label="signout"
           value="signout"
-          icon={<LocationOnIcon />}
+          icon={<PowerSettingsNewIcon />}
         />
       </BottomNavigation>
     );
