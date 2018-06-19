@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { SIGN_OUT } from '../../actions';
+import requireAuth from '../HOC/requireAuth';
 
 class Signout extends Component {
   componentDidMount() {
@@ -19,7 +21,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
+export default compose(
+  requireAuth,
+  connect(
+    null,
+    mapDispatchToProps
+  )
 )(Signout);

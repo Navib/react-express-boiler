@@ -1,40 +1,31 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-const Logged = props => (
-  <IconMenu
-    {...props}
-    iconButtonElement={
-      <IconButton>
-        <MoreVertIcon />
-      </IconButton>
-    }
-    targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-    anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-  >
-    <MenuItem primaryText="Refresh" />
-    <MenuItem primaryText="Help" />
-    <MenuItem primaryText="Sign out" />
-  </IconMenu>
-);
-
-Logged.muiName = 'IconMenu';
+import Signup from '../Auth/Signup';
+import Signin from '../Auth/Signin';
+import AuthModal from '../common/Modal/AuthModal';
 
 class NavBar extends Component {
   render() {
     return (
       <div>
-        <AppBar
-          title="Title"
-          iconElementLeft={<IconButton />}
-          iconElementRight={<Logged />}
-        />
+        <AppBar title="Title" iconElementLeft={<IconButton />}>
+          <Toolbar>
+            <AuthModal modalTitle={'Welcome Back'} buttonText={'Sign in'}>
+              <Signin history={this.props.history} />
+            </AuthModal>
+            <AuthModal modalTitle={'New user? Sign up!'} buttonText={'Sign up'}>
+              <Signup history={this.props.history} />
+            </AuthModal>
+          </Toolbar>
+        </AppBar>
       </div>
     );
   }

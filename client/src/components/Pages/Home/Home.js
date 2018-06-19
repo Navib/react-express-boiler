@@ -1,14 +1,12 @@
 import React from 'react';
 
-import Signup from '../../Auth/Signup';
-import Signin from '../../Auth/Signin';
+import AppBar from '../../NavBar/NavBar';
 
 export default props => {
   return (
     <div>
+      <AppBar history={props.history} />
       <h1>HomePage</h1>
-      <Signup history={props.history} />
-      <Signin history={props.history} />
     </div>
   );
 };
