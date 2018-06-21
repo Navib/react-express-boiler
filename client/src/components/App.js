@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import AppBar from '../containers/NavBar/NavBar';
 import BottomNav from '../containers/BottomNav/BottomNav';
 
-export default ({ children }) => {
+export default ({ children, history }) => {
   return (
     <div>
-      <BottomNav />
+      <AppBar history={history} />
       {children}
+      <BottomNav />
     </div>
   );
 };

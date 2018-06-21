@@ -7,13 +7,36 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import Typography from '@material-ui/core/Typography';
 
 import Signup from '../Auth/Signup';
 import Signin from '../Auth/Signin';
 import AuthModal from '../common/Modal/AuthModal';
 
 class NavBar extends Component {
-  render() {
+  renderNav() {
+    if (this.props.authenticated) {
+      return (
+        <div>
+          <AppBar title="Title" iconElementLeft={<IconButton />}>
+            <Toolbar>
+              <Typography
+                variant="body2"
+                gutterBottom
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                Welcome $userName
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </div>
+      );
+    }
+
     return (
       <div>
         <AppBar title="Title" iconElementLeft={<IconButton />}>
@@ -28,6 +51,9 @@ class NavBar extends Component {
         </AppBar>
       </div>
     );
+  }
+  render() {
+    return <div>{this.renderNav()}</div>;
   }
 }
 

@@ -9,7 +9,18 @@ const signin = data => {
   return axios.post('http://localhost:3090/signin', data.payload);
 };
 
+const getuser = token => {
+  console.log('api', token);
+  return axios.get('http://localhost:3090/user', {
+    headers: {
+      ContentType: 'application/json',
+      authorization: token
+    }
+  });
+};
+
 export default {
   signup: data => signup(data),
-  signin: data => signin(data)
+  signin: data => signin(data),
+  getuser: token => getuser(token)
 };
