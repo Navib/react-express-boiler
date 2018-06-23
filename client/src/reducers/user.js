@@ -2,17 +2,21 @@ import { GOT_USER, GET_USER_ERROR } from '../actions';
 
 const INITIAL_STATE = {
   email: '',
-  userName: ''
+  username: ''
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GOT_USER:
       console.log(action.response.data.user);
-      return { ...state, email: action.response.data.user.email };
+      return {
+        ...state,
+        email: action.response.data.user.email,
+        username: action.response.data.user.username
+      };
 
     case GET_USER_ERROR:
-      return { ...state, email: '' };
+      return { ...state, email: '', username: '' };
 
     default:
       return state;

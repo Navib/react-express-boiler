@@ -3,11 +3,12 @@ import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { CHANGE_AUTH } from '../../actions';
+import { TextField } from 'redux-form-material-ui';
+import Button from '@material-ui/core/Button';
 
 class Signup extends Component {
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
-      console.log('SignUp');
       this.props.history.push('/profile');
     });
   };
@@ -17,25 +18,42 @@ class Signup extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <fieldset>
-          <label>Email</label>
           <Field
             name="email"
             type="text"
-            component="input"
+            component={TextField}
             autoComplete="none"
+            floatingLabelText="Email"
+            fullWidth
+            required
           />
         </fieldset>
         <fieldset>
-          <label>Password</label>
+          <Field
+            name="username"
+            type="text"
+            component={TextField}
+            autoComplete="none"
+            floatingLabelText="Username"
+            fullWidth
+            required
+          />
+        </fieldset>
+        <fieldset>
           <Field
             name="password"
             type="password"
-            component="input"
+            component={TextField}
             autoComplete="none"
+            floatingLabelText="Password"
+            fullWidth
+            required
           />
         </fieldset>
         <div>{this.props.errorMessage}</div>
-        <button>Sign up!</button>
+        <Button variant="outlined" color="primary" type="submit">
+          Sign up!
+        </Button>
       </form>
     );
   }

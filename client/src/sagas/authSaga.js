@@ -11,21 +11,19 @@ export function* signup(data) {
     localStorage.setItem('token', response.data.token);
     data.callback();
   } catch (error) {
-    console.log('error', error);
-    yield put({ type: CHANGE_AUTH_ERROR, error: 'Enter a unique email' });
+    console.log('signup error', error.response.data.error);
+    yield put({ type: CHANGE_AUTH_ERROR, error: error.response.data.error });
   }
 }
 
 export function* signin(data) {
-  console.log('Signin', data);
   try {
     const response = yield call(api.signin, data);
     yield put({ type: SIGNED_IN, response });
     localStorage.setItem('token', response.data.token);
     data.callback();
   } catch (error) {
-    console.log('error', error);
-    yield put({ type: SIGN_IN_ERROR, error: 'Incorrect email/password' });
+    yield put({ type: SIGN_IN_ERROR, error: error.response.data.error });
   }
 }
 
@@ -34,7 +32,6 @@ export function* signout() {
     yield put({ type: SIGNED_OUT, payload: '' });
     localStorage.removeItem('token');
   } catch (error) {
-    console.log('error', error);
     yield put({ type: SIGN_OUT_ERROR, error: 'isses logging out' });
   }
 }

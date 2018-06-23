@@ -10,7 +10,6 @@ const signin = data => {
 };
 
 const getuser = token => {
-  console.log('api', token);
   return axios.get('http://localhost:3090/user', {
     headers: {
       ContentType: 'application/json',

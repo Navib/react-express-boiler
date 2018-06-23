@@ -29,7 +29,7 @@ class NavBar extends Component {
                   alignItems: 'center'
                 }}
               >
-                Welcome $userName
+                Welcome {this.props.user.username}
               </Typography>
             </Toolbar>
           </AppBar>

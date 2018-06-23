@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { SIGN_IN } from '../../actions';
+import { TextField } from 'redux-form-material-ui';
+import Button from '@material-ui/core/Button';
 
 class Signin extends Component {
   onSubmit = formProps => {
@@ -18,25 +20,31 @@ class Signin extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <fieldset>
-          <label>Email</label>
           <Field
             name="email"
             type="text"
-            component="input"
+            component={TextField}
             autoComplete="none"
+            floatingLabelText="Email"
+            fullWidth
+            required
           />
         </fieldset>
         <fieldset>
-          <label>Password</label>
           <Field
             name="password"
             type="password"
-            component="input"
+            component={TextField}
             autoComplete="none"
+            floatingLabelText="Password"
+            fullWidth
+            required
           />
         </fieldset>
         <div>{this.props.errorMessage}</div>
-        <button>Sign in!</button>
+        <Button variant="outlined" color="primary" type="submit">
+          Sign in
+        </Button>
       </form>
     );
   }

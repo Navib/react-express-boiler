@@ -4,7 +4,6 @@ import api from '../api';
 
 export function* getUser(token) {
   try {
-    console.log('saga', token.payload);
     const response = yield call(api.getuser, token.payload);
     yield put({ type: GOT_USER, response });
   } catch (error) {
