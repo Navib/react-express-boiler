@@ -1,13 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import requireAuth from '../../HOC/requireAuth';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import SendChat from '../../Chatter/SendChat';
 
 const Profile = props => {
+  const classes = {
+    backGround: {
+      backGround: 'red'
+    }
+  };
   return (
     <div>
-      <div id="first">Profile Page Header</div>
-      <div id="second">Profile Page Body</div>
-      <div id="third">Profile Page Footer</div>
+      <Grid container className="" spacing={16}>
+        <Grid item xs={12} sm={3}>
+          <Grid container justify="center" spacing={Number(16)}>
+            SideBar
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Grid container justify="flex-start" spacing={Number(16)}>
+            <SendChat />
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <Grid container justify="center" spacing={Number(16)}>
+            SideBar #2
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   );
 };

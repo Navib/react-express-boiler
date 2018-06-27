@@ -14,10 +14,18 @@ const INITIAL_STATE = {
 const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CHANGED_AUTH:
-      return { ...state, authenticated: action.response.data.token };
+      return {
+        ...state,
+        authenticated: action.response.data.token,
+        errorMessage: ''
+      };
 
     case SIGNED_IN:
-      return { ...state, authenticated: action.response.data.token };
+      return {
+        ...state,
+        authenticated: action.response.data.token,
+        errorMessage: ''
+      };
 
     case SIGNED_OUT:
       console.log('SIGNOUYT');

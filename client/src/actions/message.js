@@ -1,0 +1,3 @@
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const SENT_MESSAGE = 'SENT_MESSAGE';
+export const SEND_MESSAGE_ERROR = 'SEND_MESSAGE_ERROR';
