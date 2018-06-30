@@ -8,7 +8,6 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GOT_USER:
-      console.log(action.response.data.user);
       return {
         ...state,
         email: action.response.data.user.email,

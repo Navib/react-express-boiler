@@ -14,7 +14,8 @@ class SendChat extends Component {
       message: {
         body: null,
         timeSent: null,
-        sentBy: this.props.username
+        sentBy: this.props.username,
+        auth: this.props.auth
       }
     };
   }
@@ -24,7 +25,8 @@ class SendChat extends Component {
         message: {
           body: formProps.message,
           timeSent: new Date(),
-          sentBy: this.props.username
+          sentBy: this.props.username,
+          auth: this.props.auth
         }
       },
       () =>
@@ -60,7 +62,7 @@ class SendChat extends Component {
 }
 
 function mapStateToProps(state) {
-  return { username: state.user.username };
+  return { username: state.user.username, auth: state.auth.authenticated };
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

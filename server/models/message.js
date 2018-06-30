@@ -6,9 +6,7 @@ const bcrypt = require('bcrypt-nodejs');
 const messageSchema = new Schema({
   message: String,
   sentBy: String,
-  messageSent: { type: Date, default: Date.now },
-  likes: [Number],
-  reMessage: [Number]
+  messageSent: { type: Date }
 });
 
 // Create the model class

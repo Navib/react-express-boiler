@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { SIGN_IN } from '../../actions';
-import { TextField } from 'redux-form-material-ui';
-import Button from '@material-ui/core/Button';
+import * as actions from '../../actions';
 
 class Signin extends Component {
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
-      this.props.history.push('/profile');
+      this.props.history.push('/feature');
     });
   };
 
@@ -19,31 +16,25 @@ class Signin extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <fieldset>
+          <label>Email</label>
           <Field
             name="email"
             type="text"
-            component={TextField}
+            component="input"
             autoComplete="none"
-            floatingLabelText="Email"
-            fullWidth
-            required
           />
         </fieldset>
         <fieldset>
+          <label>Password</label>
           <Field
             name="password"
             type="password"
-            component={TextField}
+            component="input"
             autoComplete="none"
-            floatingLabelText="Password"
-            fullWidth
-            required
           />
         </fieldset>
         <div>{this.props.errorMessage}</div>
-        <Button variant="outlined" color="primary" type="submit">
-          Sign in
-        </Button>
+        <button>Sign in!</button>
       </form>
     );
   }
@@ -52,18 +43,7 @@ class Signin extends Component {
 function mapStateToProps(state) {
   return { errorMessage: state.auth.errorMessage };
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    signin: (data, callback) => {
-      dispatch({ type: SIGN_IN, payload: data, callback: callback });
-    }
-  };
-};
 export default compose(
-  withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, actions),
   reduxForm({ form: 'signin' })
 )(Signin);

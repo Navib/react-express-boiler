@@ -4,6 +4,7 @@ import requireAuth from '../../HOC/requireAuth';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import SendChat from '../../Chatter/SendChat';
+import ChatList from '../../../containers/ChatList/ChatList';
 
 const Profile = props => {
   const classes = {
@@ -22,6 +23,7 @@ const Profile = props => {
         <Grid item xs={12} sm={6}>
           <Grid container justify="flex-start" spacing={Number(16)}>
             <SendChat />
+            <ChatList />
           </Grid>
         </Grid>
         <Grid item xs={12} sm={3}>

@@ -18,7 +18,11 @@ class NavBar extends Component {
     if (this.props.authenticated) {
       return (
         <div>
-          <AppBar title="Title" iconElementLeft={<IconButton />}>
+          <AppBar
+            title="Title"
+            iconElementLeft={<IconButton />}
+            style={{ padding: 0 }}
+          >
             <Toolbar>
               <Typography
                 variant="body2"
@@ -39,7 +43,11 @@ class NavBar extends Component {
 
     return (
       <div>
-        <AppBar title="Title" iconElementLeft={<IconButton />}>
+        <AppBar
+          title="Title"
+          iconElementLeft={<IconButton />}
+          style={{ padding: 0 }}
+        >
           <Toolbar>
             <AuthModal modalTitle={'Welcome Back'} buttonText={'Sign in'}>
               <Signin history={this.props.history} />
