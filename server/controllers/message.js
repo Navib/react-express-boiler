@@ -25,18 +25,21 @@ exports.sendMessage = function(req, res, next) {
 
 exports.getMessages = function(req, res, next) {
   // Get list of all User messages
-  Message.find(
-    { sentBy: req.params.user },
-    null,
-    { sort: { messageSent: -1 } },
-    function(err, messages) {
-      if (err) {
-        return next(err);
-      }
-      // return user messages
-      res.json({ messages: messages });
+  console.log('here', req);
+  let userSort = {};
+  if (req.params.user != 'all') {
+    userSort = { sentBy: req.params.user };
+  }
+  Message.find(userSort, null, { sort: { messageSent: -1 } }, function(
+    err,
+    messages
+  ) {
+    if (err) {
+      return next(err);
     }
-  );
+    // return user messages
+    res.json({ messages: messages });
+  });
 };
 
 exports.deleteMessage = function(req, res, next) {

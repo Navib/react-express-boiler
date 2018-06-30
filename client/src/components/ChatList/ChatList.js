@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
 import List from '@material-ui/core/List';
 import ChatCard from './ChatCard';
 
@@ -18,7 +20,13 @@ class ChatList extends Component {
       apiFired: false
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    if (this.props.match.params.userId) {
+      this.props.getUserMessages(this.props.match.params.userId, null);
+    } else {
+      this.props.getUserMessages('all', null);
+    }
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.username != this.props.username) {
@@ -48,4 +56,4 @@ ChatList.propTypes = {
 };
 ChatList.defaultProps = {};
 
-export default withStyles(styles)(ChatList);
+export default withStyles(styles)(withRouter(ChatList));

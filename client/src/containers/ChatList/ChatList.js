@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     username: state.user.username,
     auth: state.auth.authenticated,
-    messages: state.messagesSent.messages
+    messages: state.messagesSent.messages,
+    routing: state.routing
   };
 };
 

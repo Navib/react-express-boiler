@@ -51,7 +51,7 @@ class ChatCard extends Component {
                   src="http://via.placeholder.com/120x120"
                   className="message-avatar"
                 />
-                {message.sentBy}
+                @{message.sentBy}
               </span>
               <VertMenu messageId={message.messageId} />
             </Typography>

@@ -21,6 +21,7 @@ class SendChat extends Component {
     };
   }
   onSubmit = formProps => {
+    const { reset } = this.props;
     this.setState(
       {
         message: {
@@ -33,6 +34,7 @@ class SendChat extends Component {
       },
       () => this.props.sendMessage(this.state.message, () => {})
     );
+    reset();
   };
 
   render() {

@@ -5,7 +5,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const options = ['Pin', 'Edit', 'Delete'];
+const options = ['Pin', 'Delete'];
 
 class VertMenu extends React.Component {
   state = {
