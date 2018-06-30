@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import uniqid from 'uniqid';
 import { TextField } from 'redux-form-material-ui';
 import Button from '@material-ui/core/Button';
 import { SEND_MESSAGE } from '../../actions';
@@ -26,13 +27,11 @@ class SendChat extends Component {
           body: formProps.message,
           timeSent: new Date(),
           sentBy: this.props.username,
-          auth: this.props.auth
+          auth: this.props.auth,
+          messageId: uniqid(this.props.username)
         }
       },
-      () =>
-        this.props.sendMessage(this.state.message, () => {
-          console.log('sendMessage push', this.state.message);
-        })
+      () => this.props.sendMessage(this.state.message, () => {})
     );
   };
 
@@ -40,20 +39,28 @@ class SendChat extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form style={{ width: '100%' }} onSubmit={handleSubmit(this.onSubmit)}>
+      <form
+        style={{ width: '100%', paddingLeft: '16px', paddingRight: '16px' }}
+        onSubmit={handleSubmit(this.onSubmit)}
+      >
         <fieldset>
           <Field
             name="message"
             type="text"
             component={TextField}
             autoComplete="none"
-            floatingLabelText="Chat"
+            floatingLabelText="Whats on your mind?"
             fullWidth
             required
           />
         </fieldset>
         <div>{this.props.errorMessage}</div>
-        <Button variant="outlined" color="primary" type="submit">
+        <Button
+          variant="outlined"
+          color="primary"
+          type="submit"
+          className="sendChat-btn"
+        >
           Send
         </Button>
       </form>

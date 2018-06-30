@@ -15,8 +15,14 @@ module.exports = function(app) {
     Message.getMessages(req, res, next);
   });
   app.post('/signin', requireSignin, Authentication.signin);
+
   app.post('/signup', Authentication.signup);
+
   app.post('/message', requireAuth, function(req, res, next) {
     Message.sendMessage(req, res, next);
+  });
+
+  app.post('/message/delete/:id', requireAuth, function(req, res, next) {
+    Message.deleteMessage(req, res, next);
   });
 };

@@ -14,20 +14,20 @@ const Profile = props => {
   };
   return (
     <div>
-      <Grid container className="" spacing={16}>
+      <Grid container className="">
         <Grid item xs={12} sm={3}>
-          <Grid container justify="center" spacing={Number(16)}>
+          <Grid container justify="center">
             SideBar
           </Grid>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Grid container justify="flex-start" spacing={Number(16)}>
+          <Grid container justify="flex-start">
             <SendChat />
             <ChatList />
           </Grid>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <Grid container justify="center" spacing={Number(16)}>
+          <Grid container justify="center">
             SideBar #2
           </Grid>
         </Grid>

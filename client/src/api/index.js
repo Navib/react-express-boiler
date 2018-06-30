@@ -19,7 +19,6 @@ const getuser = token => {
 };
 
 const sendMessage = payload => {
-  console.log('save message', payload);
   return axios({
     method: 'POST',
     headers: {
@@ -40,10 +39,22 @@ const getMessages = (username, auth) => {
   });
 };
 
+const deleteMessage = (messageId, auth) => {
+  return axios({
+    method: 'POST',
+    headers: {
+      ContentType: 'application/json',
+      authorization: auth
+    },
+    url: `http://localhost:3090/message/delete/${messageId}`
+  });
+};
+
 export default {
   signup: data => signup(data),
   signin: data => signin(data),
   getuser: token => getuser(token),
   sendMessage: payload => sendMessage(payload),
-  getMessages: (username, auth) => getMessages(username, auth)
+  getMessages: (username, auth) => getMessages(username, auth),
+  deleteMessage: (messageId, auth) => deleteMessage(messageId, auth)
 };

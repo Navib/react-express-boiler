@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import ChatCard from './ChatCard';
 
 const styles = theme => ({
   root: {
@@ -27,7 +21,6 @@ class ChatList extends Component {
   componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props);
     if (prevProps.username != this.props.username) {
       this.props.getUserMessages(this.props.username, this.props.auth);
     }
@@ -35,24 +28,7 @@ class ChatList extends Component {
 
   renderMessages() {
     return this.props.messages.map(message => {
-      console.log('rendering', String(message.timeSent));
-      const data = message.messageSent
-        ? moment(message.messageSent).format('dddd, MMMM Do YYYY, h:mm:ss a')
-        : moment(message.timeSent.toISOString()).format(
-            'dddd, MMMM Do YYYY, h:mm:ss a'
-          );
-      return (
-        <ListItem button key={Math.random()}>
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText
-            primary={message.message ? message.message : message.body}
-          />
-          <ListItemText primary={message.sentBy} />
-          <ListItemText primary={data} />
-        </ListItem>
-      );
+      return <ChatCard message={message} key={Math.random()} />;
     });
   }
 
@@ -70,8 +46,6 @@ ChatList.propTypes = {
   classes: PropTypes.object.isRequired,
   messages: PropTypes.any
 };
-ChatList.defaultProps = {
-  messages: null
-};
+ChatList.defaultProps = {};
 
 export default withStyles(styles)(ChatList);

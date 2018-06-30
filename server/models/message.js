@@ -6,7 +6,8 @@ const bcrypt = require('bcrypt-nodejs');
 const messageSchema = new Schema({
   message: String,
   sentBy: String,
-  messageSent: { type: Date }
+  messageSent: { type: Date },
+  messageId: String
 });
 
 // Create the model class

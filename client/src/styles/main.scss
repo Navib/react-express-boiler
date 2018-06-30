@@ -3,8 +3,34 @@
 html,
 body {
   font-family: 'Roboto';
+  margin: 0;
 }
 
 fieldset {
   border: none;
+}
+
+.center-card-typeography {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.center-card-typeography span:nth-child(1) {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.message-avatar {
+  margin-right: 8px;
+}
+
+.sendChat-btn {
+  margin-left: 16px;
+}
+
+.vert-menu-item {
+  font-size: 11px !important;
+  padding: 8px !important;
 }

@@ -2,7 +2,9 @@ import {
   SENT_MESSAGE,
   SEND_MESSAGE_ERROR,
   GOT_USER_MESSAGES,
-  GET_USER_MESSAGES_ERROR
+  GET_USER_MESSAGES_ERROR,
+  DELETED_USER_MESSAGE,
+  DELETED_USER_MESSAGE_ERROR
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -12,14 +14,14 @@ const INITIAL_STATE = {
 const MessageReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SENT_MESSAGE:
-      console.log(action.payload.timeSent);
       return {
         ...state,
         messages: [
           {
-            body: action.payload.body,
+            message: action.payload.body,
             sentBy: action.payload.sentBy,
-            timeSent: action.payload.timeSent
+            messageSent: action.payload.timeSent,
+            messageId: action.payload.messageId
           },
           ...state.messages
         ]
@@ -36,6 +38,20 @@ const MessageReducer = (state = INITIAL_STATE, action) => {
 
     case GET_USER_MESSAGES_ERROR:
       return { ...state, message: [] };
+
+    case DELETED_USER_MESSAGE:
+      const messageId = action.response.data.deleted.messageId;
+      return {
+        ...state,
+        messages: state.messages.filter(
+          message => message.messageId !== messageId
+        ),
+        ...state.messages
+      };
+
+    case DELETED_USER_MESSAGE_ERROR:
+      return { ...state, errorMessage: 'error deleted' };
+
     default:
       return state;
   }
