@@ -1,6 +1,7 @@
 import { takeLatest, put, call, all } from 'redux-saga/effects';
 import { SENT_MESSAGE, SEND_MESSAGE_ERROR } from '../actions';
 import { GOT_USER_MESSAGES, GET_USER_MESSAGES_ERROR } from '../actions';
+import { GOT_ALL_MESSAGES, GET_ALL_MESSAGES_ERROR } from '../actions';
 import { DELETED_USER_MESSAGE, DELETED_USER_MESSAGE_ERROR } from '../actions';
 
 import api from '../api';
@@ -34,6 +35,18 @@ export function* deleteMessage(data) {
   } catch (error) {
     yield put({
       type: DELETED_USER_MESSAGE_ERROR,
+      error: error.response.data.error
+    });
+  }
+}
+
+export function* getAllMessages(data) {
+  try {
+    const response = yield call(api.getMessages, data.payload, data.auth);
+    yield put({ type: GOT_ALL_MESSAGES, response });
+  } catch (error) {
+    yield put({
+      type: GET_ALL_MESSAGES_ERROR,
       error: error.response.data.error
     });
   }

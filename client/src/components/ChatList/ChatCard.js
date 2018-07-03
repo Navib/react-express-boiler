@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
@@ -45,16 +46,19 @@ class ChatCard extends Component {
               align="left"
               className="center-card-typeography"
             >
-              <span>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="http://via.placeholder.com/120x120"
-                  className="message-avatar"
-                />
-                @{message.sentBy}
-              </span>
+              <Link to={`/user/${message.sentBy}`}>
+                <span>
+                  <Avatar
+                    alt="Remy Sharp"
+                    src="http://via.placeholder.com/120x120"
+                    className="message-avatar"
+                  />
+                  @{message.sentBy}
+                </span>
+              </Link>
               <VertMenu messageId={message.messageId} />
             </Typography>
+
             <Typography variant="body1" gutterBottom>
               {message.message ? message.message : message.body}
             </Typography>

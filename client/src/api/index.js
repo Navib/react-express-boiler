@@ -39,6 +39,15 @@ const getMessages = (username, auth) => {
   });
 };
 
+const getAllMessages = auth => {
+  return axios.get(`http://localhost:3090/getMessages/all`, {
+    headers: {
+      ContentType: 'application/json',
+      authorization: auth
+    }
+  });
+};
+
 const deleteMessage = (messageId, auth) => {
   return axios({
     method: 'POST',
@@ -56,5 +65,6 @@ export default {
   getuser: token => getuser(token),
   sendMessage: payload => sendMessage(payload),
   getMessages: (username, auth) => getMessages(username, auth),
+  getAllMessages: auth => getAllMessages(auth),
   deleteMessage: (messageId, auth) => deleteMessage(messageId, auth)
 };

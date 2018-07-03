@@ -24,20 +24,27 @@ class ChatList extends Component {
     if (this.props.match.params.userId) {
       this.props.getUserMessages(this.props.match.params.userId, null);
     } else {
-      this.props.getUserMessages('all', null);
+      this.props.getAllMessages('all', null);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log('chat', this.props);
     if (prevProps.username != this.props.username) {
       this.props.getUserMessages(this.props.username, this.props.auth);
     }
   }
 
   renderMessages() {
-    return this.props.messages.map(message => {
-      return <ChatCard message={message} key={Math.random()} />;
-    });
+    if (this.props.match.url === '/') {
+      return this.props.allMessages.map(message => {
+        return <ChatCard message={message} key={Math.random()} />;
+      });
+    } else {
+      return this.props.messages.map(message => {
+        return <ChatCard message={message} key={Math.random()} />;
+      });
+    }
   }
 
   render() {
