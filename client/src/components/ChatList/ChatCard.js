@@ -56,7 +56,10 @@ class ChatCard extends Component {
                   @{message.sentBy}
                 </span>
               </Link>
-              <VertMenu messageId={message.messageId} />
+              <VertMenu
+                messageId={message.messageId}
+                adminMenu={this.props.adminMenu}
+              />
             </Typography>
 
             <Typography variant="body1" gutterBottom>

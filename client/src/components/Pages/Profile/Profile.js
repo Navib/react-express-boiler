@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import SendChat from '../../Chatter/SendChat';
 import ChatList from '../../../containers/ChatList/ChatList';
+import UserDash from '../../../containers/UserDash/UserDash';
 
 const Profile = props => {
   const classes = {
@@ -17,7 +18,7 @@ const Profile = props => {
       <Grid container className="">
         <Grid item xs={12} sm={3}>
           <Grid container justify="center">
-            SideBar
+            <UserDash />
           </Grid>
         </Grid>
         <Grid item xs={12} sm={6}>

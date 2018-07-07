@@ -1,0 +1,39 @@
+.userdash-paper {
+  margin: 16px;
+
+  .userdash {
+    .userdash-user-meta {
+      display: flex;
+      align-items: flex-end;
+      margin: 8px 12px 0;
+    }
+
+    .userdash-avatar {
+      width: 80px;
+      height: 80px;
+    }
+
+    .userdash-name {
+      display: flex;
+      align-items: flex-end;
+      margin-left: 16px;
+    }
+
+    .userdash-metric-table {
+      th {
+        display: table-cell;
+        padding: 16px 16px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(224, 224, 224, 1);
+        vertical-align: inherit;
+      }
+
+      .numeric-row {
+        td {
+          padding: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

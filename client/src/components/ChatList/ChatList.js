@@ -29,7 +29,6 @@ class ChatList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('chat', this.props);
     if (prevProps.username != this.props.username) {
       this.props.getUserMessages(this.props.username, this.props.auth);
     }
@@ -38,11 +37,21 @@ class ChatList extends Component {
   renderMessages() {
     if (this.props.match.url === '/') {
       return this.props.allMessages.map(message => {
-        return <ChatCard message={message} key={Math.random()} />;
+        if (message.sentBy === this.props.username) {
+          return (
+            <ChatCard message={message} adminMenu={true} key={Math.random()} />
+          );
+        } else {
+          return (
+            <ChatCard message={message} adminMenu={false} key={Math.random()} />
+          );
+        }
       });
     } else {
       return this.props.messages.map(message => {
-        return <ChatCard message={message} key={Math.random()} />;
+        return (
+          <ChatCard message={message} adminMenu={true} key={Math.random()} />
+        );
       });
     }
   }
