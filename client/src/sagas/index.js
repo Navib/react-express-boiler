@@ -5,7 +5,8 @@ import {
   sendMessage,
   getMessages,
   deleteMessage,
-  getAllMessages
+  getAllMessages,
+  getActiveUserMessages
 } from './messageSaga';
 import { CHANGE_AUTH } from '../actions';
 import { SIGN_IN } from '../actions';
@@ -15,6 +16,7 @@ import { SEND_MESSAGE } from '../actions';
 import { GET_USER_MESSAGES } from '../actions';
 import { GET_ALL_MESSAGES } from '../actions';
 import { DELETE_USER_MESSAGE } from '../actions';
+import { GET_ACTIVE_USER_MESSAGES } from '../actions';
 
 export function* sagas() {
   yield all([
@@ -25,6 +27,7 @@ export function* sagas() {
     yield takeEvery(SEND_MESSAGE, sendMessage),
     yield takeEvery(GET_USER_MESSAGES, getMessages),
     yield takeEvery(GET_ALL_MESSAGES, getAllMessages),
-    yield takeEvery(DELETE_USER_MESSAGE, deleteMessage)
+    yield takeEvery(DELETE_USER_MESSAGE, deleteMessage),
+    yield takeEvery(GET_ACTIVE_USER_MESSAGES, getActiveUserMessages)
   ]);
 }

@@ -7,12 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Metric from './Metric';
 
 class UserDash extends Component {
-  componentDidMount() {
-    console.log('mounted', this.props);
-  }
-  componentDidUpdate() {
-    console.log('updated', this.props);
-  }
+  componentDidMount() {}
+  componentDidUpdate() {}
   render() {
     return (
       <Paper className="userdash-paper" elevation={2}>

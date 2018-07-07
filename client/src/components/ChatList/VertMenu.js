@@ -12,9 +12,7 @@ class VertMenu extends React.Component {
     anchorEl: null
   };
 
-  componentDidMount() {
-    console.log(this.props);
-  }
+  componentDidMount() {}
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
   };

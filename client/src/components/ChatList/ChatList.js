@@ -22,7 +22,7 @@ class ChatList extends Component {
   }
   componentDidMount() {
     if (this.props.match.params.userId) {
-      this.props.getUserMessages(this.props.match.params.userId, null);
+      this.props.getActiveUserMessages(this.props.match.params.userId, null);
     } else {
       this.props.getAllMessages('all', null);
     }
@@ -47,10 +47,16 @@ class ChatList extends Component {
           );
         }
       });
-    } else {
+    } else if (this.props.match.url === '/profile') {
       return this.props.messages.map(message => {
         return (
           <ChatCard message={message} adminMenu={true} key={Math.random()} />
+        );
+      });
+    } else {
+      return this.props.activeProfile.messages.map(message => {
+        return (
+          <ChatCard message={message} adminMenu={false} key={Math.random()} />
         );
       });
     }

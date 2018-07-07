@@ -8,6 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Typography from '@material-ui/core/Typography';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import Signup from '../Auth/Signup';
 import Signin from '../Auth/Signin';
@@ -33,7 +34,7 @@ class NavBar extends Component {
                   alignItems: 'center'
                 }}
               >
-                Welcome {this.props.user.username}
+                <AccountCircle /> {this.props.user.username}
               </Typography>
             </Toolbar>
           </AppBar>

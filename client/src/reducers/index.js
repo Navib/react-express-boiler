@@ -5,6 +5,7 @@ import auth from './auth';
 import user from './user';
 import message from './message';
 import allMessages from './allMessages';
+import activeProfile from './activeProfile';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   auth: auth,
   user: user,
   userMessages: message,
-  allMessages: allMessages
+  allMessages: allMessages,
+  activeProfile: activeProfile
 });
 
 export default rootReducer;
