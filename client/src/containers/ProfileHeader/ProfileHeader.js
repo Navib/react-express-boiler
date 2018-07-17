@@ -5,7 +5,8 @@ import TheComponent from '../../components/ProfileHeader/ProfileHeader';
 
 const mapStateToProps = state => {
   return {
-    username: state.user.username
+    username: state.user.username,
+    activeProfile: state.activeProfile
   };
 };
 

@@ -8,7 +8,7 @@ export default ({ children, history }) => {
   return (
     <div>
       <AppBar history={history} />
-      {children}
+      <div style={{ paddingBottom: '4em' }}>{children}</div>
       <BottomNav />
     </div>
   );
