@@ -7,7 +7,7 @@ import SendChat from '../../Chatter/SendChat';
 import ChatList from '../../../containers/ChatList/ChatList';
 import UserDash from '../../../containers/UserDash/UserDash';
 import ProfileHeader from '../../../containers/ProfileHeader/ProfileHeader';
-import ProfileDash from '../../ProfileDash/ProfileDash';
+import ProfileDash from '../../../containers/ProfileDash/ProfileDash';
 
 const Profile = props => {
   const classes = {

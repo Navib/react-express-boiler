@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import MetricList from './MetricList';
@@ -7,6 +8,7 @@ import Button from '@material-ui/core/Button';
 
 class ProfileDash extends Component {
   render() {
+    const { messages, activeProfile } = this.props;
     return (
       <Grid container className="profile-dash">
         <Grid
@@ -32,7 +34,7 @@ class ProfileDash extends Component {
           xs={12}
           sm={6}
         >
-          <MetricList />
+          <MetricList messagesSent={messages} activeProfile={activeProfile} />
         </Grid>
         <Grid
           item
@@ -50,5 +52,11 @@ class ProfileDash extends Component {
     );
   }
 }
+
+ProfileDash.propTypes = {
+  messagesSent: PropTypes.any,
+  activeProfile: PropTypes.any
+};
+ProfileDash.defaultProps = {};
 
 export default ProfileDash;

@@ -5,7 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import SendChat from '../../Chatter/SendChat';
 import ChatList from '../../../containers/ChatList/ChatList';
+import UserDash from '../../../containers/UserDash/UserDash';
 import ProfileHeader from '../../../containers/ProfileHeader/ProfileHeader';
+import ProfileDash from '../../../containers/ProfileDash/ProfileDash';
 
 const User = props => {
   const classes = {
@@ -13,15 +15,17 @@ const User = props => {
       backGround: 'red'
     }
   };
+
   return (
     <div>
       <Grid container className="">
         <Grid item xs={12} sm={12}>
           <ProfileHeader />
+          <ProfileDash />
         </Grid>
         <Grid item xs={12} sm={3}>
           <Grid container justify="center">
-            SideBar
+            User Info
           </Grid>
         </Grid>
         <Grid item xs={12} sm={6}>
