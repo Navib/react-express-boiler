@@ -7,6 +7,7 @@ import SendChat from '../../Chatter/SendChat';
 import ChatList from '../../../containers/ChatList/ChatList';
 import UserDash from '../../../containers/UserDash/UserDash';
 import ProfileHeader from '../../../containers/ProfileHeader/ProfileHeader';
+import ProfileDash from '../../ProfileDash/ProfileDash';
 
 const Profile = props => {
   const classes = {
@@ -19,10 +20,11 @@ const Profile = props => {
       <Grid container className="">
         <Grid item xs={12} sm={12}>
           <ProfileHeader />
+          <ProfileDash />
         </Grid>
         <Grid item xs={12} sm={3}>
           <Grid container justify="center">
-            <UserDash />
+            User Info
           </Grid>
         </Grid>
         <Grid item xs={12} sm={6}>
