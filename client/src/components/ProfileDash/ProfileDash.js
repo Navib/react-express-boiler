@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import MetricList from './MetricList';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+import FollowButton from '../common/FollowButton/FollowButton';
 
 class ProfileDash extends Component {
   render() {
@@ -44,9 +44,7 @@ class ProfileDash extends Component {
           xs={12}
           sm={3}
         >
-          <Button variant="outlined" color="primary">
-            Edit/Follow
-          </Button>
+          <FollowButton />
         </Grid>
       </Grid>
     );
