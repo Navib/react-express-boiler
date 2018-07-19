@@ -8,15 +8,20 @@ import {
   getAllMessages,
   getActiveUserMessages
 } from './messageSaga';
-import { CHANGE_AUTH } from '../actions';
-import { SIGN_IN } from '../actions';
-import { SIGN_OUT } from '../actions';
-import { GET_USER } from '../actions';
-import { SEND_MESSAGE } from '../actions';
-import { GET_USER_MESSAGES } from '../actions';
-import { GET_ALL_MESSAGES } from '../actions';
-import { DELETE_USER_MESSAGE } from '../actions';
-import { GET_ACTIVE_USER_MESSAGES } from '../actions';
+import { addFollower, getFollowers } from './followerSaga';
+import {
+  CHANGE_AUTH,
+  SIGN_IN,
+  SIGN_OUT,
+  GET_USER,
+  SEND_MESSAGE,
+  GET_USER_MESSAGES,
+  GET_ALL_MESSAGES,
+  DELETE_USER_MESSAGE,
+  GET_ACTIVE_USER_MESSAGES,
+  ADD_FOLLOWER,
+  GET_FOLLOWERS
+} from '../actions';
 
 export function* sagas() {
   yield all([
@@ -28,6 +33,8 @@ export function* sagas() {
     yield takeEvery(GET_USER_MESSAGES, getMessages),
     yield takeEvery(GET_ALL_MESSAGES, getAllMessages),
     yield takeEvery(DELETE_USER_MESSAGE, deleteMessage),
-    yield takeEvery(GET_ACTIVE_USER_MESSAGES, getActiveUserMessages)
+    yield takeEvery(GET_ACTIVE_USER_MESSAGES, getActiveUserMessages),
+    yield takeEvery(ADD_FOLLOWER, addFollower),
+    yield takeEvery(GET_FOLLOWERS, getFollowers)
   ]);
 }

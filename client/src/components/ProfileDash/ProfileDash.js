@@ -4,11 +4,15 @@ import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import MetricList from './MetricList';
 import Avatar from '@material-ui/core/Avatar';
-import FollowButton from '../common/FollowButton/FollowButton';
+import FollowButton from '../../containers/common/FollowButton/FollowButton';
 
 class ProfileDash extends Component {
+  componentDidMount() {
+    this.props.getFollowers(this.props.auth);
+  }
+
   render() {
-    const { messages, activeProfile } = this.props;
+    const { messages, activeProfile, following } = this.props;
     return (
       <Grid container className="profile-dash">
         <Grid
@@ -34,7 +38,11 @@ class ProfileDash extends Component {
           xs={12}
           sm={6}
         >
-          <MetricList messagesSent={messages} activeProfile={activeProfile} />
+          <MetricList
+            messagesSent={messages}
+            activeProfile={activeProfile}
+            followers={following}
+          />
         </Grid>
         <Grid
           item

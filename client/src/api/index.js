@@ -59,6 +59,21 @@ const deleteMessage = (messageId, auth) => {
   });
 };
 
+const addFollower = (username, auth) => {
+  return axios({
+    method: 'POST',
+    headers: {
+      ContentType: 'application/json',
+      authorization: auth
+    },
+    url: `http://localhost:3090/add/follower/${username}`
+  });
+};
+
+const getuserNoAuth = token => {
+  return axios.get('http://localhost:3090/get/user', {});
+};
+
 export default {
   signup: data => signup(data),
   signin: data => signin(data),
@@ -66,5 +81,6 @@ export default {
   sendMessage: payload => sendMessage(payload),
   getMessages: (username, auth) => getMessages(username, auth),
   getAllMessages: auth => getAllMessages(auth),
-  deleteMessage: (messageId, auth) => deleteMessage(messageId, auth)
+  deleteMessage: (messageId, auth) => deleteMessage(messageId, auth),
+  addFollower: (username, auth) => addFollower(username, auth)
 };

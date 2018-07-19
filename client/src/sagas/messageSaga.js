@@ -1,12 +1,16 @@
 import { takeLatest, put, call, all } from 'redux-saga/effects';
-import { SENT_MESSAGE, SEND_MESSAGE_ERROR } from '../actions';
 import {
+  SENT_MESSAGE,
+  SEND_MESSAGE_ERROR,
   GOT_ACTIVE_USER_MESSAGES,
-  GET_ACTIVE_USER_MESSAGES_ERROR
+  GET_ACTIVE_USER_MESSAGES_ERROR,
+  GOT_USER_MESSAGES,
+  GET_USER_MESSAGES_ERROR,
+  GOT_ALL_MESSAGES,
+  GET_ALL_MESSAGES_ERROR,
+  DELETED_USER_MESSAGE,
+  DELETED_USER_MESSAGE_ERROR
 } from '../actions';
-import { GOT_USER_MESSAGES, GET_USER_MESSAGES_ERROR } from '../actions';
-import { GOT_ALL_MESSAGES, GET_ALL_MESSAGES_ERROR } from '../actions';
-import { DELETED_USER_MESSAGE, DELETED_USER_MESSAGE_ERROR } from '../actions';
 
 import api from '../api';
 

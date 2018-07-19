@@ -51,7 +51,12 @@ const MetricList = props => {
           link: '#',
           count: `${props.messagesSent.length}`
         },
-        { id: 1, name: 'Follows', link: '#', count: '10' },
+        {
+          id: 1,
+          name: 'Follows',
+          link: '#',
+          count: `${props.followers.length}`
+        },
         { id: 2, name: 'Followers', link: '#', count: '10' },
         { id: 3, name: 'Likes', link: '#', count: '10' }
       ]);
@@ -75,7 +80,8 @@ const MetricList = props => {
 MetricList.propTypes = {
   menuItems: PropTypes.any,
   messagesSent: PropTypes.any,
-  activeProfile: PropTypes.any
+  activeProfile: PropTypes.any,
+  followers: PropTypes.any
 };
 
 MetricList.defaultProps = {};

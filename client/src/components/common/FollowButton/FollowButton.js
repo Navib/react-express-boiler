@@ -9,7 +9,13 @@ const FollowButton = props => {
   const renderButton = () => {
     if (props.match.path === '/user/:userId') {
       return (
-        <Button variant="outlined" color="primary">
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() =>
+            props.addFollower(props.match.params.userId, props.auth)
+          }
+        >
           <Typography variant="button" gutterBottom>
             Follow
           </Typography>

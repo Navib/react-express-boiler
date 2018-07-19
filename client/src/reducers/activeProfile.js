@@ -5,16 +5,19 @@ import {
 
 const INITIAL_STATE = {
   username: null,
-  messages: []
+  messages: [],
+  following: []
 };
 
 const activeProfile = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GOT_ACTIVE_USER_MESSAGES:
+      console.log(action);
       return {
         ...state,
         username: action.response.data.messages[0].sentBy,
-        messages: action.response.data.messages
+        messages: action.response.data.messages,
+        following: action.response.data.following
       };
 
     case GET_ACTIVE_USER_MESSAGES_ERROR:
