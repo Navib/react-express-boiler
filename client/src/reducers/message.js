@@ -41,6 +41,7 @@ const MessageReducer = (state = INITIAL_STATE, action) => {
 
     case DELETED_USER_MESSAGE:
       const messageId = action.response.data.deleted.messageId;
+      console.log(messageId);
       return {
         ...state,
         messages: state.messages.filter(

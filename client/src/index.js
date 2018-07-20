@@ -28,7 +28,7 @@ ReactDOM.render(
           <App>
             <Route path="/user/:userId" component={User} />
             <Route exact path="/" component={Home} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile/:userId" component={Profile} />
             <Route path="/signout" component={Signout} />
           </App>
         </Switch>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import MetricList from './MetricList';
@@ -8,7 +9,7 @@ import FollowButton from '../../containers/common/FollowButton/FollowButton';
 
 class ProfileDash extends Component {
   componentDidMount() {
-    this.props.getFollowers(this.props.auth);
+    this.props.getFollowers(this.props.match.params.userId);
   }
 
   render() {
@@ -65,4 +66,4 @@ ProfileDash.propTypes = {
 };
 ProfileDash.defaultProps = {};
 
-export default ProfileDash;
+export default withRouter(ProfileDash);

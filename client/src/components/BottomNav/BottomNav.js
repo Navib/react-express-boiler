@@ -43,7 +43,7 @@ class BottomNav extends React.Component {
           <BottomNavigationAction label="Home" value="" icon={<HomeIcon />} />
           <BottomNavigationAction
             label="Profile"
-            value="profile"
+            value={`profile/${this.props.username}`}
             icon={<AccountCircleIcon />}
           />
           <BottomNavigationAction

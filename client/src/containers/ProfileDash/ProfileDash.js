@@ -15,8 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getFollowers: auth => {
-      dispatch({ type: GET_FOLLOWERS, payload: auth });
+    getFollowers: username => {
+      dispatch({ type: GET_FOLLOWERS, payload: username });
     }
   };
 };

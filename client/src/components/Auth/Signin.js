@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 class Signin extends Component {
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
-      this.props.history.push('/profile');
+      this.props.history.push(`/profile/${this.props.username}`);
     });
   };
 
@@ -50,7 +50,10 @@ class Signin extends Component {
 }
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.errorMessage };
+  return {
+    errorMessage: state.auth.errorMessage,
+    username: state.user.username
+  };
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

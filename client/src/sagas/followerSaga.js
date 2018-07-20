@@ -20,9 +20,8 @@ export function* addFollower(data) {
 
 export function* getFollowers(data) {
   const { payload } = data;
-  console.log('saga hit');
   try {
-    const response = yield call(api.getuser, payload);
+    const response = yield call(api.getAnyUser, payload);
     yield put({ type: GOT_FOLLOWERS, response });
   } catch (error) {
     console.log('error', error);

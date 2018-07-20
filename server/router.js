@@ -15,8 +15,8 @@ module.exports = function(app) {
   app.get('/getMessages/:user', function(req, res, next) {
     Message.getMessages(req, res, next);
   });
-  app.get('/get/user', requireAuth, function(req, res, next) {
-    User.getUser(req, res, next);
+  app.get('/get/user/:user', function(req, res, next) {
+    User.getAnyUser(req, res, next);
   });
   /* End User */
 

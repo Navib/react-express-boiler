@@ -70,14 +70,15 @@ const addFollower = (username, auth) => {
   });
 };
 
-const getuserNoAuth = token => {
-  return axios.get('http://localhost:3090/get/user', {});
+const getAnyUser = username => {
+  return axios.get(`http://localhost:3090/get/user/${username}`, {});
 };
 
 export default {
   signup: data => signup(data),
   signin: data => signin(data),
   getuser: token => getuser(token),
+  getAnyUser: username => getAnyUser(username),
   sendMessage: payload => sendMessage(payload),
   getMessages: (username, auth) => getMessages(username, auth),
   getAllMessages: auth => getAllMessages(auth),

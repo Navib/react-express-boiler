@@ -47,7 +47,7 @@ class ChatList extends Component {
           );
         }
       });
-    } else if (this.props.match.url === '/profile') {
+    } else if (this.props.match.path === '/profile/:userId') {
       return this.props.messages.map(message => {
         return (
           <ChatCard message={message} adminMenu={true} key={Math.random()} />

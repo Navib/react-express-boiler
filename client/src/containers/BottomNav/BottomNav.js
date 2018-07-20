@@ -5,7 +5,10 @@ import { CHANGE_AUTH } from '../../actions';
 import TheComponent from '../../components/BottomNav/BottomNav';
 
 const mapStateToProps = (state, ownProps) => {
-  return { authenticated: state.auth.authenticated };
+  return {
+    authenticated: state.auth.authenticated,
+    username: state.user.username
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

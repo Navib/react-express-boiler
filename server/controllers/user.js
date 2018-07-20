@@ -36,3 +36,13 @@ exports.addFollower = function(req, res, next) {
     });
   });
 };
+
+exports.getAnyUser = function(req, res, next) {
+  User.findOne({ username: req.params.user }, function(err, existingUser) {
+    if (err) {
+      return next(err);
+    }
+    // if a user with email does exist return user object
+    res.status(200).json({ user: existingUser });
+  });
+};

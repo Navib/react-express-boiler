@@ -39,7 +39,12 @@ const MetricList = props => {
           link: '#',
           count: `${props.activeProfile.messages.length}`
         },
-        { id: 1, name: 'Follows', link: '#', count: '10' },
+        {
+          id: 1,
+          name: 'Follows',
+          link: '#',
+          count: `${props.followers.length}`
+        },
         { id: 2, name: 'Followers', link: '#', count: '10' },
         { id: 3, name: 'Likes', link: '#', count: '10' }
       ]);
