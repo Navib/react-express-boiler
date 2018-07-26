@@ -10,7 +10,6 @@ import Metric from './Metric';
 class UserDash extends Component {
   componentDidMount() {}
   componentDidUpdate(prevProps) {
-    console.log(this.props);
     if (prevProps.username.length < this.props.username.length)
       this.props.getFollowers(this.props.username);
   }
