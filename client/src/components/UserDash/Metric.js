@@ -19,7 +19,7 @@ const Metric = props => {
       <TableBody>
         <TableRow className="numeric-row">
           <TableCell numeric>{props.messages.length}</TableCell>
-          <TableCell numeric>0</TableCell>
+          <TableCell numeric>{props.followers.length}</TableCell>
           <TableCell numeric>0</TableCell>
         </TableRow>
       </TableBody>

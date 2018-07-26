@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -8,7 +9,12 @@ import Metric from './Metric';
 
 class UserDash extends Component {
   componentDidMount() {}
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps) {
+    console.log(this.props);
+    if (prevProps.username.length < this.props.username.length)
+      this.props.getFollowers(this.props.username);
+  }
+
   render() {
     return (
       <Paper className="userdash-paper" elevation={2}>
@@ -29,7 +35,10 @@ class UserDash extends Component {
                 {this.props.username}
               </Typography>
             </Grid>
-            <Metric messages={this.props.messages} />
+            <Metric
+              messages={this.props.messages}
+              followers={this.props.following}
+            />
           </Grid>
         </Grid>
       </Paper>
@@ -39,7 +48,8 @@ class UserDash extends Component {
 
 UserDash.propTypes = {
   name: PropTypes.string,
-  messages: PropTypes.array
+  messages: PropTypes.array,
+  followers: PropTypes.any
 };
 
-export default UserDash;
+export default withRouter(UserDash);
