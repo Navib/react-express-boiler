@@ -2,7 +2,8 @@ import { GOT_USER, GET_USER_ERROR } from '../actions';
 
 const INITIAL_STATE = {
   email: '',
-  username: ''
+  username: '',
+  following: []
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -11,11 +12,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         email: action.response.data.user.email,
-        username: action.response.data.user.username
+        username: action.response.data.user.username,
+        following: action.response.data.user.following
       };
 
     case GET_USER_ERROR:
-      return { ...state, email: '', username: '' };
+      return { ...state, email: '', username: '', following: [] };
 
     default:
       return state;

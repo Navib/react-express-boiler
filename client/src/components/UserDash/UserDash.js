@@ -15,6 +15,7 @@ class UserDash extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Paper className="userdash-paper" elevation={2}>
         <Grid item xs={12} sm={12} className="userdash">

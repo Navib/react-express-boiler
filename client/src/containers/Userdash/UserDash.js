@@ -8,7 +8,7 @@ const mapStateToProps = state => {
     username: state.user.username,
     messages: state.userMessages.messages,
     auth: state.auth.authenticated,
-    following: state.following
+    following: state.user.following
   };
 };
 
