@@ -40,5 +40,9 @@ module.exports = function(app) {
   app.post('/add/follower/:id', requireAuth, function(req, res, next) {
     User.addFollower(req, res, next);
   });
+
+  app.get('/get/whoFollows/:id', function(req, res, next) {
+    User.whoFollows(req, res, next);
+  });
   /* End Folloer Roues */
 };

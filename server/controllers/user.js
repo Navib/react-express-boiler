@@ -46,3 +46,15 @@ exports.getAnyUser = function(req, res, next) {
     res.status(200).json({ user: existingUser });
   });
 };
+
+exports.whoFollows = function(req, res, next) {
+  User.find({ 'following.username': req.params.id }, function(
+    err,
+    existingUser
+  ) {
+    if (err) {
+      return next(err);
+    }
+    res.status(200).json({ existingUser });
+  });
+};
