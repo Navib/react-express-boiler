@@ -3,7 +3,8 @@ import { GOT_USER, GET_USER_ERROR } from '../actions';
 const INITIAL_STATE = {
   email: '',
   username: '',
-  following: []
+  following: [],
+  followers: []
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -13,7 +14,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         email: action.response.data.user.email,
         username: action.response.data.user.username,
-        following: action.response.data.user.following
+        following: action.response.data.user.following,
+        followers: action.response.data.user.followers
       };
 
     case GET_USER_ERROR:

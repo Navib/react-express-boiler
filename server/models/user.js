@@ -7,7 +7,8 @@ const userSchema = new Schema({
   email: { type: String, unique: true },
   password: String,
   username: { type: String, unique: true },
-  following: []
+  following: [],
+  followers: []
 });
 
 // On Save Hook, encrypt password

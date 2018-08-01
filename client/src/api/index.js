@@ -70,6 +70,16 @@ const addFollower = (username, auth) => {
   });
 };
 
+const getFollowers = username => {
+  return axios({
+    method: 'GET',
+    headers: {
+      ContentType: 'application/json'
+    },
+    url: `localhost:3090/get/whoFollows/${username}`
+  });
+};
+
 const getAnyUser = username => {
   return axios.get(`http://localhost:3090/get/user/${username}`, {});
 };

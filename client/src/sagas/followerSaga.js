@@ -3,7 +3,9 @@ import {
   ADDED_FOLLOWER,
   ADD_FOLLOWER_ERROR,
   GOT_FOLLOWERS,
-  GET_FOLLOWERS_ERROR
+  GET_FOLLOWERS_ERROR,
+  GET_WHO_FOLLOWS_USER_ERROR,
+  GOT_WHO_FOLLOWS_USER
 } from '../actions';
 
 import api from '../api';
@@ -26,5 +28,16 @@ export function* getFollowers(data) {
   } catch (error) {
     console.log('error', error);
     yield put({ type: GET_FOLLOWERS_ERROR, error: 'Cannot GET' });
+  }
+}
+
+export function* getWhoFollowsUser(data) {
+  const { payload } = data;
+  try {
+    const response = yield call(api.getFollowers, payload);
+    yield put({ type: GOT_WHO_FOLLOWS_USER, response });
+  } catch (error) {
+    console.log('error', error);
+    yield put({ type: GET_WHO_FOLLOWS_USER_ERROR, error: 'Cannot GET' });
   }
 }

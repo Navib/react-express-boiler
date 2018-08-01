@@ -14,6 +14,16 @@ exports.getUser = function(req, res, next) {
   });
 };
 
+exports.getAnyUser = function(req, res, next) {
+  User.findOne({ username: req.params.user }, function(err, existingUser) {
+    if (err) {
+      return next(err);
+    }
+    // if a user with email does exist return user object
+    res.status(200).json({ user: existingUser });
+  });
+};
+
 exports.addFollower = function(req, res, next) {
   // Get user id
   // Then Find and add to db
@@ -37,24 +47,23 @@ exports.addFollower = function(req, res, next) {
   });
 };
 
-exports.getAnyUser = function(req, res, next) {
-  User.findOne({ username: req.params.user }, function(err, existingUser) {
-    if (err) {
-      return next(err);
-    }
-    // if a user with email does exist return user object
-    res.status(200).json({ user: existingUser });
-  });
-};
-
 exports.whoFollows = function(req, res, next) {
-  User.find({ 'following.username': req.params.id }, function(
-    err,
-    existingUser
-  ) {
+  User.find({ 'following.username': req.params.id }, function(err, followers) {
     if (err) {
       return next(err);
     }
-    res.status(200).json({ existingUser });
+
+    User.findOneAndUpdate(
+      { username: req.params.id },
+      { $addToSet: { followers: followers } }
+    ).exec(function(err, user) {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        console.log('success', followers);
+        res.status(200).send(followers);
+      }
+    });
   });
 };
