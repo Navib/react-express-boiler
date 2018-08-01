@@ -13,6 +13,7 @@ class ProfileDash extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { messages, activeProfile, following } = this.props;
     return (
       <Grid container className="profile-dash">

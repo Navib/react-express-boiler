@@ -70,13 +70,14 @@ const addFollower = (username, auth) => {
   });
 };
 
-const getFollowers = username => {
+const getFollowers = (username, auth) => {
   return axios({
     method: 'GET',
     headers: {
-      ContentType: 'application/json'
+      ContentType: 'application/json',
+      authorization: auth
     },
-    url: `localhost:3090/get/whoFollows/${username}`
+    url: `http://localhost:3090/get/whoFollows/${username}`
   });
 };
 
@@ -93,5 +94,6 @@ export default {
   getMessages: (username, auth) => getMessages(username, auth),
   getAllMessages: auth => getAllMessages(auth),
   deleteMessage: (messageId, auth) => deleteMessage(messageId, auth),
-  addFollower: (username, auth) => addFollower(username, auth)
+  addFollower: (username, auth) => addFollower(username, auth),
+  getFollowers: (username, auth) => getFollowers(username, auth)
 };

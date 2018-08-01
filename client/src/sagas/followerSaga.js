@@ -32,6 +32,7 @@ export function* getFollowers(data) {
 }
 
 export function* getWhoFollowsUser(data) {
+  console.log('saga', data);
   const { payload } = data;
   try {
     const response = yield call(api.getFollowers, payload);

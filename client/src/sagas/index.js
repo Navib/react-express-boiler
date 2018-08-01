@@ -8,7 +8,7 @@ import {
   getAllMessages,
   getActiveUserMessages
 } from './messageSaga';
-import { addFollower, getFollowers } from './followerSaga';
+import { addFollower, getFollowers, getWhoFollowsUser } from './followerSaga';
 import {
   CHANGE_AUTH,
   SIGN_IN,
@@ -20,7 +20,8 @@ import {
   DELETE_USER_MESSAGE,
   GET_ACTIVE_USER_MESSAGES,
   ADD_FOLLOWER,
-  GET_FOLLOWERS
+  GET_FOLLOWERS,
+  GET_WHO_FOLLOWS_USER
 } from '../actions';
 
 export function* sagas() {
@@ -35,6 +36,7 @@ export function* sagas() {
     yield takeEvery(DELETE_USER_MESSAGE, deleteMessage),
     yield takeEvery(GET_ACTIVE_USER_MESSAGES, getActiveUserMessages),
     yield takeEvery(ADD_FOLLOWER, addFollower),
-    yield takeEvery(GET_FOLLOWERS, getFollowers)
+    yield takeEvery(GET_FOLLOWERS, getFollowers),
+    yield takeEvery(GET_WHO_FOLLOWS_USER, getWhoFollowsUser)
   ]);
 }

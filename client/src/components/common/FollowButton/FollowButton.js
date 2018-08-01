@@ -12,9 +12,10 @@ const FollowButton = props => {
         <Button
           variant="outlined"
           color="primary"
-          onClick={() =>
-            props.addFollower(props.match.params.userId, props.auth)
-          }
+          onClick={() => {
+            props.addFollower(props.match.params.userId, props.auth);
+            props.updateFollowing(props.match.params.userId, props.auth);
+          }}
         >
           <Typography variant="button" gutterBottom>
             Follow

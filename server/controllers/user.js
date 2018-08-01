@@ -61,7 +61,6 @@ exports.whoFollows = function(req, res, next) {
         console.log(err);
         res.status(500).send(err);
       } else {
-        console.log('success', followers);
         res.status(200).send(followers);
       }
     });
