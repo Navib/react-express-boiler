@@ -14,9 +14,7 @@ class User extends Component {
     this.props.getSelectedProfile(this.props.match.params.userId);
   }
 
-  componentDidUpdate() {
-    console.log('props updated', this.props.selectedProfile);
-  }
+  componentDidUpdate() {}
   render() {
     return (
       <div>

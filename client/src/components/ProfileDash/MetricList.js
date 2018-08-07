@@ -29,7 +29,6 @@ const metricStyle = {
 };
 
 const MetricList = props => {
-  console.log(props);
   const renderMenu = () => {
     let menu;
     if (props.match.path === '/user/:userId') {
