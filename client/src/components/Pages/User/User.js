@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import SendChat from '../../Chatter/SendChat';
 import ChatList from '../../../containers/ChatList/ChatList';
 import UserDash from '../../../containers/UserDash/UserDash';
 import ProfileHeader from '../../../containers/ProfileHeader/ProfileHeader';
@@ -14,7 +13,14 @@ class User extends Component {
     this.props.getSelectedProfile(this.props.match.params.userId);
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.selectedProfile.following.length <
+      this.props.selectedProfile.following.length
+    ) {
+      this.props.getSelectedProfile(this.props.match.params.userId);
+    }
+  }
   render() {
     return (
       <div>
@@ -33,7 +39,6 @@ class User extends Component {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Grid container justify="flex-start">
-              <SendChat />
               <ChatList />
             </Grid>
           </Grid>

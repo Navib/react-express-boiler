@@ -17,6 +17,7 @@ import './assets/Rick.png';
 import App from './containers/app';
 import Home from './components/Pages/Home/Home';
 import Profile from './components/Pages/Profile/Profile';
+import ProfileEdit from './components/Pages/ProfileEdit/ProfileEdit';
 import User from './containers/Pages/User/User';
 import Signout from './components/Auth/Signout';
 
@@ -28,7 +29,11 @@ ReactDOM.render(
           <App>
             <Route path="/user/:userId" component={User} />
             <Route exact path="/" component={Home} />
-            <Route path="/profile/:userId" component={Profile} />
+            <Route
+              path="/profile/:userId/editProfile"
+              component={ProfileEdit}
+            />
+            <Route exact path="/profile/:userId" component={Profile} />
             <Route path="/signout" component={Signout} />
           </App>
         </Switch>

@@ -25,7 +25,10 @@ const FollowButton = props => {
     } else {
       return (
         <Button variant="outlined" color="primary">
-          <Link to="/profile/edit" className={classNames('edit-btn')}>
+          <Link
+            to={`/profile/${props.match.params.userId}/editProfile`}
+            className={classNames('edit-btn')}
+          >
             <Typography variant="button" gutterBottom>
               Edit Profile
             </Typography>

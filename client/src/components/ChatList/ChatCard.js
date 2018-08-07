@@ -46,7 +46,13 @@ class ChatCard extends Component {
               align="left"
               className="center-card-typeography"
             >
-              <Link to={`/user/${message.sentBy}`}>
+              <Link
+                to={
+                  this.props.adminMenu
+                    ? `/profile/${message.sentBy}`
+                    : `/user/${message.sentBy}`
+                }
+              >
                 <span>
                   <Avatar
                     alt="Remy Sharp"

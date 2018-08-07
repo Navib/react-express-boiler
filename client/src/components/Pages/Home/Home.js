@@ -8,9 +8,6 @@ const Home = props => {
   return (
     <div>
       <Grid container className="">
-        <Grid item xs={12} sm={12}>
-          <h1>HomePage</h1>
-        </Grid>
         <Grid item xs={12} sm={3}>
           <Grid container justify="center">
             <UserDash />
