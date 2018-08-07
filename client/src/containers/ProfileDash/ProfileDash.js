@@ -9,7 +9,7 @@ const mapStateToProps = state => {
     messages: state.userMessages.messages,
     activeProfile: state.activeProfile,
     auth: state.auth.authenticated,
-    following: state.following,
+    following: state.user.following,
     followers: state.user.followers
   };
 };

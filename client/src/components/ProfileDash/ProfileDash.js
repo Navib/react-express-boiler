@@ -13,8 +13,14 @@ class ProfileDash extends Component {
   }
 
   render() {
-    console.log(this.props);
-    const { messages, activeProfile, following } = this.props;
+    const {
+      messages,
+      activeProfile,
+      following,
+      followers,
+      selectedFollowers,
+      selectedFollowing
+    } = this.props;
     return (
       <Grid container className="profile-dash">
         <Grid
@@ -43,7 +49,10 @@ class ProfileDash extends Component {
           <MetricList
             messagesSent={messages}
             activeProfile={activeProfile}
-            followers={following}
+            following={following}
+            followers={followers}
+            selectedFollowers={selectedFollowers}
+            selectedFollowing={selectedFollowing}
           />
         </Grid>
         <Grid

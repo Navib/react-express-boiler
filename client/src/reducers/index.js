@@ -7,6 +7,7 @@ import message from './message';
 import allMessages from './allMessages';
 import activeProfile from './activeProfile';
 import follower from './follower';
+import selectedProfile from './selectedProfile';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   following: follower,
   userMessages: message,
   allMessages: allMessages,
-  activeProfile: activeProfile
+  activeProfile: activeProfile,
+  selectedProfile: selectedProfile
 });
 
 export default rootReducer;

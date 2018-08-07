@@ -29,6 +29,7 @@ const metricStyle = {
 };
 
 const MetricList = props => {
+  console.log(props);
   const renderMenu = () => {
     let menu;
     if (props.match.path === '/user/:userId') {
@@ -43,9 +44,14 @@ const MetricList = props => {
           id: 1,
           name: 'Follows',
           link: '#',
-          count: `${props.followers.length}`
+          count: `${props.selectedFollowing.length}`
         },
-        { id: 2, name: 'Followers', link: '#', count: '10' },
+        {
+          id: 2,
+          name: 'Followers',
+          link: '#',
+          count: `${props.selectedFollowers.length}`
+        },
         { id: 3, name: 'Likes', link: '#', count: '10' }
       ]);
     } else {
@@ -60,9 +66,14 @@ const MetricList = props => {
           id: 1,
           name: 'Follows',
           link: '#',
+          count: `${props.following.length}`
+        },
+        {
+          id: 2,
+          name: 'Followers',
+          link: '#',
           count: `${props.followers.length}`
         },
-        { id: 2, name: 'Followers', link: '#', count: '10' },
         { id: 3, name: 'Likes', link: '#', count: '10' }
       ]);
     }

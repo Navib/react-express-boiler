@@ -17,7 +17,7 @@ import './assets/Rick.png';
 import App from './containers/app';
 import Home from './components/Pages/Home/Home';
 import Profile from './components/Pages/Profile/Profile';
-import User from './components/Pages/User/User';
+import User from './containers/Pages/User/User';
 import Signout from './components/Auth/Signout';
 
 ReactDOM.render(
