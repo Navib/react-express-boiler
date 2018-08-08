@@ -17,6 +17,7 @@ import './assets/Rick.png';
 import App from './containers/app';
 import Home from './components/Pages/Home/Home';
 import Profile from './components/Pages/Profile/Profile';
+import Search from './components/Pages/Search/Search';
 import ProfileEdit from './components/Pages/ProfileEdit/ProfileEdit';
 import User from './containers/Pages/User/User';
 import Signout from './components/Auth/Signout';
@@ -27,8 +28,9 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <Switch>
           <App>
-            <Route path="/user/:userId" component={User} />
             <Route exact path="/" component={Home} />
+            <Route path="/search" component={Search} />
+            <Route path="/user/:userId" component={User} />
             <Route
               path="/profile/:userId/editProfile"
               component={ProfileEdit}
