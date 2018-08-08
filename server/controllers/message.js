@@ -25,7 +25,6 @@ exports.sendMessage = function(req, res, next) {
 
 exports.getMessages = function(req, res, next) {
   // Get list of all User messages
-  console.log('here', req);
   let userSort = {};
   if (req.params.user != 'all') {
     userSort = { sentBy: req.params.user };

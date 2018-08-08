@@ -1,6 +1,7 @@
 const Authentication = require('./controllers/authentication');
 const User = require('./controllers/user');
 const Message = require('./controllers/message');
+const Search = require('./controllers/search');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -44,5 +45,10 @@ module.exports = function(app) {
   app.get('/get/whoFollows/:id', function(req, res, next) {
     User.whoFollows(req, res, next);
   });
-  /* End Folloer Roues */
+  /* End Follower Routes */
+
+  /* Search Queries */
+  app.get('/get/messages/:query', function(req, res, next) {
+    Search.getSearchMessageQuery(req, res, next);
+  });
 };
